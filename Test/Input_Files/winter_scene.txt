@@ -1,0 +1,49 @@
+material snow metal solid (1 1 1) false 0.3
+material moon diffuse imagewrap (1 1 1) true moon.png
+
+material stars diffuse solid (1 1 1) true
+material leafs diffuse gradient (0 0.3 0) false
+
+material snowflake birefringence gradient (0.94 0.97 1) false 1.3 1.6
+
+
+#floor
+sphere (0 0 -2000) 2000 snow
+sphere (-10 10 -47) 50 snow
+sphere (10 30 -45) 50 snow
+sphere (10 5 -59) 60 snow
+sphere (0 1 -59) 60 snow
+sphere (-6 -4 -59.5) 60 snow
+
+
+#light
+sphere (-300 3500 -45) 150 moon
+sphere (-500 11000 3500) 2000 moon
+sphere (0 -15 60) 40 moon
+
+#stars
+mesh (0 0 0) stars_mesh.txt stars 0 1
+
+#tree
+mesh ( -3 -33 -9 ) leafs_mesh.txt leafs 143 1
+mesh ( 12 9 -10 ) leafs_mesh.txt leafs 34 1
+mesh ( 9 -15 -4 ) leafs_mesh.txt leafs 116 1
+mesh ( -11 14 -3 ) leafs_mesh.txt leafs 292 1
+mesh ( -10 -19 0 ) leafs_mesh.txt leafs 287 1
+mesh ( 2 -27 -4 ) leafs_mesh.txt leafs 85 1
+mesh ( 10 25 1 ) leafs_mesh.txt leafs 42 1
+mesh ( 0 1 -7 ) leafs_mesh.txt leafs 51 1
+mesh ( -7 5 0 ) leafs_mesh.txt leafs 251 1
+
+#snowflakes
+mesh (0 0 0) snowflakes_mesh.txt snowflake 0 1
+
+
+# threads
+threads 1
+
+# rendering (samples/depth)
+rays 10 25
+camera (0 -50 5) (0 0 1) (0 0 1) 40
+pixels 1280 720
+output final2.png

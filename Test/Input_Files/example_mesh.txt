@@ -1,0 +1,27 @@
+# materials
+material mirror specular solid (1 1 1) false
+material floor diffuse solid (0.7 0.7 0.7) false
+material light diffuse solid (1 1 1) true
+
+# MESH: You can use object files to create really complicated images 
+# mesh `location` `mesh filename` `rotation in degrees` `scalar`
+mesh (0 0 0) pyramid_mesh.txt mirror 45 1
+
+# floor
+sphere (0 0 -1000) 1000 floor
+
+# light
+triangle (-4 -4 0) (-4 4 0) (-4 4 4) light 0
+triangle (-4 -4 0) (-4 4 4) (-4 -4 4) light 0
+
+# sky
+#sphere (0 0 1020) 1000 light
+
+# threads
+threads 4
+
+# rendering 
+rays 100 10
+camera (5 -15 5) (0 0 1) (0 0 1) 45
+pixels 1280 720
+output example_mesh.png
